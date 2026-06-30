@@ -54,3 +54,9 @@ example/.flutter-plugins-dependencies
 
 # ── CI config — lives in the repo for GitHub Actions; consumers never need it ──
 .github/
+
+# ── Repo-only preview asset — the README hotlinks assets/demo.webp via an
+#    ABSOLUTE raw.githubusercontent.com URL (pinned to a commit SHA), so the
+#    published archive never needs the file. Keeps the demo at 0 extra bytes for
+#    every `flutter pub get`. Verify with: dart pub publish --dry-run ──
+assets/demo.webp
