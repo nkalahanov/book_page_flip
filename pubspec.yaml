@@ -4,7 +4,6 @@ description: >-
   realistic 3D page curl, a soft shadow, and a natural-feeling turn.
 version: 0.1.0
 repository: https://github.com/nkalahanov/book_page_flip
-publish_to: none
 topics:
   - animation
   - book
