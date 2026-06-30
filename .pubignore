@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  .pubignore — the exact publish manifest filter for book_page_flip.
+#
+#  PRECISION NOTE (dart.dev/tools/pub/publishing): when a directory has BOTH a
+#  .gitignore and a .pubignore, `dart pub publish` uses the .pubignore and
+#  IGNORES that directory's .gitignore. This package root has both, so this file
+#  is SELF-SUFFICIENT — it RESTATES the build-artifact excludes the root
+#  .gitignore provided (otherwise build/ and pubspec.lock would ship), then adds
+#  the publish-only excludes. Hidden dot-paths (.dart_tool/, .git/, .idea/,
+#  .metadata, .DS_Store) are dropped by pub automatically; a few appear below
+#  anyway so the manifest is fully explicit and reviewable.
+#
+#  SHIPS (kept on purpose): lib/**, pubspec.yaml, README.md, CHANGELOG.md,
+#  LICENSE, analysis_options.yaml, example/lib/**, example/pubspec.yaml,
+#  example/README.md, example/analysis_options.yaml.
+#
+#  Always verify before a real publish:  dart pub publish --dry-run
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Build artifacts — RESTATED (this .pubignore overrides the root .gitignore) ──
+.dart_tool/
+.packages
+build/
+pubspec.lock          # a library publishes no lockfile; consumers resolve their own
+doc/api/              # generated dartdoc output
+
+# ── Tests & coverage — consumers don't need them; trims the tarball ──
+test/
+coverage/
+*.lcov
+
+# ── Example: pub.dev RENDERS example/lib/main.dart, so its SOURCE ships — but the
+#    platform runner projects and per-package build state are large and fully
+#    regenerable (`flutter create .`), so they do not. ──
+example/.dart_tool/
+example/build/
+example/android/
+example/ios/
+example/linux/
+example/macos/
+example/windows/
+example/web/
+example/test/
+example/pubspec.lock
+example/*.iml
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
+
+# ── IDE / editor / OS cruft (most are dot-paths pub already drops; *.iml is not) ──
+*.iml
+.idea/
+.vscode/
+.DS_Store
+
+# ── CI config — lives in the repo for GitHub Actions; consumers never need it ──
+.github/

@@ -1,0 +1,36 @@
+include: package:very_good_analysis/analysis_options.10.3.0.yaml
+
+linter:
+  rules:
+    # This package is one library split across lib/src parts; only the eight symbols
+    # re-exported by lib/book_page_flip.dart are public API, and those are documented.
+    # Every other symbol is an internal implementation detail that deliberately
+    # carries maintainer notes, not consumer-facing API docs.
+    public_member_api_docs: false
+    # The engine carries dense floating-point math and explanatory comments that an
+    # 80-column cap would harm; the formatter still wraps code to 80 columns.
+    lines_longer_than_80_chars: false
+    # Related vector buffers are declared together on purpose (wx, wy, wz; sx, sy) —
+    # splitting them one-per-line hurts the readability of the geometry core.
+    avoid_multiple_declarations_per_line: false
+    # This is a floating-point engine; an explicit `.0` documents that a literal is a
+    # double (2.0, 0.5), which reads clearer than the bare int-literal form.
+    prefer_int_literals: false
+    # Small internal geometry helpers take a positional bool (face front?) that is
+    # unambiguous at every call site; naming it would only add noise.
+    avoid_positional_boolean_parameters: false
+    # BookFlipMaterial.lerp mirrors Flutter's own static lerps (Color.lerp, Size.lerp)
+    # — a static method is the idiomatic shape, not a named constructor.
+    prefer_constructors_over_static_methods: false
+    # Cascades are not always clearer than a repeated receiver; for the short step
+    # sequences in the math helpers and painter, separate statements read better.
+    cascade_invocations: false
+    # Some maintainer comments reference local variables in [brackets], and the barrel
+    # library doc links exported (not imported) symbols; neither is a resolvable
+    # dartdoc reference, but both read clearly and the generated docs are unaffected.
+    comment_references: false
+    # The Dart 3.7+ "tall style" formatter owns trailing-comma placement itself, so
+    # this lint now fights `dart format` (the formatter drops commas the lint then
+    # demands — they are mutually exclusive). pana scores on `dart format`, so we keep
+    # the formatter and retire this now-obsolete rule.
+    require_trailing_commas: false

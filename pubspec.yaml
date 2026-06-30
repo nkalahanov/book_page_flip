@@ -1,0 +1,27 @@
+name: book_page_flip
+description: >-
+  A smooth, efficient open-book page-turn widget. Drag or animate pages with a
+  realistic 3D page curl, a soft shadow, and a natural-feeling turn.
+version: 0.1.0
+repository: https://github.com/nkalahanov/book_page_flip
+publish_to: none
+topics:
+  - animation
+  - book
+  - page-flip
+  - ui
+  - widgets
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: '>=3.22.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  vector_math: '>=2.1.4 <3.0.0'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^10.3.0

@@ -1,0 +1,16 @@
+# Dart / Flutter build + tool output (regenerated; never commit or publish).
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# This is a library package — do not commit a lockfile (apps pin, libraries don't).
+pubspec.lock
+
+# IDE / editor / OS noise.
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
