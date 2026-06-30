@@ -10,8 +10,7 @@ Turn pages in real 3D — drag them with a finger, or flip them from code.
 Show your content as an open book, with pages that curl in 3D like real paper.
 Readers turn them with a drag — or you flip them from code.
 
-![demo](doc/demo.gif)
-<!-- Maintainer: add a real demo GIF at doc/demo.gif before publishing. -->
+![Animated demo: turning book pages in 3D with a drag or from code](https://raw.githubusercontent.com/nkalahanov/book_page_flip/df3fd064191b8bb30d3083dc44f38edb287c670c/assets/demo.webp)
 
 ## ✨ Features
 
